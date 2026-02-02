@@ -101,7 +101,7 @@ function renderLinks(items) {
 }
 
 async function load() {
-  if (!SHEET_CSV_URL || SHEET_CSV_URL.includes("https://docs.google.com/spreadsheets/d/e/2PACX-1vRVH3rXKZt6ZIaLB8Sful2N_UPUuyFTGnVCUnkg-LwmuWBuU592Qo86muo6L-PzqkHfwOgHKwUcmKns/pub?gid=0&single=true&output=csv")) {
+  if (!SHEET_CSV_URL || SHEET_CSV_URL.includes("PASTE_URL_CSV_DISINI")) {
     elStatus.textContent =
       "Belum di-set. Paste URL CSV Google Sheet di file app.js (SHEET_CSV_URL).";
     return;
