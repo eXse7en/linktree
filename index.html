@@ -3,82 +3,217 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Link Saya</title>
-  <meta name="description" content="Kumpulan link" />
+  <title>Fitroh • Links</title>
+  <meta name="description" content="Kumpulan link penting Fitroh" />
+
   <style>
-    :root {
-      --bg: #0b1020;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.09);
+    :root{
+      --bg1:#070a14;
+      --bg2:#0b1020;
+
+      --card: rgba(255,255,255,.07);
+      --card2: rgba(255,255,255,.10);
+
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
-      --border: rgba(255,255,255,.12);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
+      --border: rgba(255,255,255,.14);
+
+      --shadow: 0 12px 36px rgba(0,0,0,.35);
+      --radius: 20px;
+
+      --btn-radius: 16px;
+
+      --maxw: 560px;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(900px 600px at 10% 10%, #1b2b6a 0%, transparent 55%),
-                  radial-gradient(800px 600px at 90% 30%, #6a1b53 0%, transparent 55%),
-                  linear-gradient(180deg, #070a14 0%, #0b1020 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color:var(--text);
+
+      background:
+        radial-gradient(900px 600px at 10% 10%, #1b2b6a 0%, transparent 55%),
+        radial-gradient(800px 600px at 90% 30%, #6a1b53 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
       padding: 28px 14px;
     }
-    .wrap { width: 100%; max-width: 520px; }
-    .card {
+
+    .wrap{ width:100%; max-width:var(--maxw); }
+
+    .card{
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    header {
+
+    header{
       padding: 22px 18px 14px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+      text-align:center;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), transparent);
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
-    .avatar {
-      width: 84px; height: 84px;
+
+    .avatar{
+      width: 88px;
+      height: 88px;
       border-radius: 999px;
       margin: 0 auto 12px;
-      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+
+      background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
       border: 1px solid var(--border);
-      display: grid; place-items: center;
-      font-weight: 700;
-      letter-spacing: .5px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+
+      display:grid;
+      place-items:center;
+
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: .6px;
+      user-select:none;
     }
-    h1 { margin: 0; font-size: 22px; }
-    .bio { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.35; }
-    .content { padding: 14px 14px 18px; }
-    .links { display: grid; gap: 10px; margin-top: 8px; }
-    a.btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    h1{
+      margin:0;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: .2px;
+    }
+
+    .bio{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .content{
+      padding: 14px 14px 18px;
+    }
+
+    .status{
+      font-size: 13px;
+      color: var(--muted);
+      text-align:center;
+      padding: 10px 0 6px;
+    }
+
+    .hidden{ display:none; }
+
+    .links{
+      display:grid;
       gap: 10px;
-      text-decoration: none;
-      padding: 14px 14px;
-      border-radius: 14px;
+      margin-top: 10px;
+    }
+
+    /* ===== Tombol link + Icon ===== */
+    a.btn{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap: 12px;
+
+      text-decoration:none;
+      padding: 14px 16px;
+      border-radius: var(--btn-radius);
+
       background: var(--card2);
       border: 1px solid var(--border);
+
       color: var(--text);
-      font-weight: 600;
-      transition: transform .08s ease, background .15s ease;
+      font-weight: 650;
+      letter-spacing: .2px;
+
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
       will-change: transform;
+      position: relative;
+      overflow: hidden;
     }
-    a.btn:hover { transform: translateY(-1px); }
-    a.btn:active { transform: translateY(0px) scale(.99); }
-    .small { font-size: 12px; color: var(--muted); text-align: center; margin-top: 14px; }
-    .status { font-size: 13px; color: var(--muted); text-align: center; padding: 10px 0 0; }
-    .hidden { display: none; }
+
+    a.btn::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), transparent 55%);
+      opacity: 0;
+      transition: opacity .2s ease;
+      pointer-events:none;
+    }
+
+    a.btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    a.btn:hover::before{
+      opacity: 1;
+    }
+
+    a.btn:active{
+      transform: translateY(0px) scale(.99);
+    }
+
+    /* Icon container */
+    .btn .ico{
+      width: 22px;
+      height: 22px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      opacity: .95;
+    }
+
+    /* Iconify icon sizing */
+    .btn .ico .iconify{
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Label tetap center walau ada icon */
+    .btn .label{
+      flex: 1 1 auto;
+      text-align:center;
+
+      /* trik: biar teks center, kompensasi lebar icon */
+      margin-left: -22px;
+      padding-right: 22px;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .footer{
+      font-size: 12px;
+      color: var(--muted);
+      text-align:center;
+      margin-top: 14px;
+      line-height: 1.4;
+    }
+
+    .footer a{
+      color: rgba(255,255,255,.80);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255,255,255,.25);
+    }
+
+    .footer a:hover{
+      border-bottom-color: rgba(255,255,255,.45);
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
@@ -91,11 +226,18 @@
       <div class="content">
         <div id="status" class="status">Memuat link…</div>
         <div id="links" class="links" aria-label="Daftar link"></div>
-        <div class="small">Diedit lewat Google Sheets • Di-host GitHub Pages</div>
+
+        <div class="footer">
+          Diedit lewat Google Sheets • Di-host GitHub Pages
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Iconify (untuk icon per link dari kolom "icon") -->
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
+  <!-- App kamu -->
   <script src="./app.js"></script>
 </body>
 </html>
